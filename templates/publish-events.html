@@ -1,0 +1,69 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style>
+.form-group{
+  text-align: left;
+}
+.container{
+  margin-top: 50px;
+}
+</style>
+
+
+<form action="{{ url_for('publish_events') }}" method="post" enctype="multipart/form-data">
+    <fieldset>
+      <div class="container" align="center">
+        <div class="col-md-6">
+            <div class="jumbotron">
+        <legend>Share your event</legend>
+      <div class="form-group">
+        <label class="label" for="title">Title</label>
+        <input type="text" name="title" class="form-control" id="title"  placeholder="Enter the title of your event">
+      </div>
+      <div class="form-group">
+          <label class="label" for="description">Description</label>
+          <textarea name="description" class="form-control" id="description" placeholder="Describe you event" rows="5"></textarea> 
+     </div>
+     <div class="form-group">
+        <label for="select">Club</label>
+        <select class="form-control" name="club" id="select">
+          <option value="none">Choose..</option>
+          <option value="Coach Isg">Coach Isg</option>
+          <option value="Isg Up">Isg Up</option>
+          <option value="Maseer">Maseer</option>
+          <option value="Rotaract Isg">Rotaract Isg</option>
+          <option value="Club Microsoft ISG">Club Microsoft ISG</option>
+          <option value="SMA Junior entreprise">SMA Junior entreprise</option>
+          <option value="Club Radio ISG">Club Radio ISG</option>
+          <option value="Tunivision">Club Radio ISG</option>
+          <option value="Microbotics">Microbotics</option>
+          <option value="Ico ISG">Ico ISG</option>
+          <option value="Securinets ISG">Securinets ISG</option>
+        </select>
+      </div>
+      <div class="form-group">
+          <label class="label" for="place">Place</label>
+          <input type="text" name="place" class="form-control" id="place"  placeholder="Enter the place of your event">
+      </div>  
+      <div class="form-group">
+          <label class="label" for="price">Price</label>
+          <input type="text" name="price" class="form-control" id="price"  placeholder="Enter the price of your event">
+      </div>
+      <div class="form-group">
+        <label class="label" for="date">Date</label>
+        <input type="text" name="date" class="form-control" id="date"  placeholder="Enter the date of your event">
+    </div>  
+      <div class="form-group">
+          <label for="exampleInputFile">Image</label>
+          <input type="file" class="form-control-file" name="file" id="file" aria-describedby="fileHelp">
+          <small id="file" class="form-text text-muted">Choose an image for your event.</small>
+      </div>
+     <input type="submit" class="btn btn-lg btn-success" value="Save">
+     <button type="reset" class="btn btn-lg btn-secondary">Reset</button>
+    </div>
+    </div>
+      </div>
+    </fieldset>
+</form>
+{% include 'footer.html' %}
+{% endblock %}

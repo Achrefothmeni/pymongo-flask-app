@@ -1,0 +1,100 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style>
+    .index-content a:hover{
+    color:black;
+    text-decoration:none;
+}
+.index-content{
+    margin-bottom:20px;
+    padding:50px 0px;
+    
+}
+
+.index-content .row{
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+article
+{
+    padding-bottom: 14px;
+    
+}
+
+.index-content a{
+    color: black;
+}
+.index-content .card{
+    background-color: #FFFFFF;
+    padding:0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius:4px;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.3);
+
+}
+.index-content .card:hover{
+    box-shadow: 0 16px 24px 2px rgba(0,0,0,0.14), 0 6px 30px 5px rgba(0,0,0,0.12), 0 8px 10px -5px rgba(0,0,0,0.3);
+    color:black;
+}
+.index-content .card img{
+    width:100%;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    height: 200px;
+    object-fit: cover;
+}
+.index-content .card h4{
+    margin:20px;
+}
+.index-content .card p{
+    margin:20px;
+    opacity: 0.65;
+}
+@media (max-width: 768px) {
+
+    .index-content .col-lg-4 {
+        margin-top: 20px;
+    }
+}
+</style>
+{% if not nb  %}
+<br> 
+<div class="container" align="center">
+    <img style="object-fit:cover; width: 60%;" class="img img-responsive" src="{{ url_for('static', filename='no-result.png') }}">
+</div>
+{% endif %}
+<div class="index-content">
+    <div class="container">
+        <div class="row"> 
+            {% for event in events %}
+            
+            <a href="/">
+                <article class="col-md-4">
+                    <figure class="col-lg-14">
+                
+                    <div class="card">
+                        <img  src="{{ url_for('uploaded_file', filename=event.image ) }}">
+                        <h4>{{event.title}}</h4>
+                        <hr>
+                        <h6>by:{{event.club}} <a style="color:#4E768A;" href="/"></a>, Date: {{event.date}}</h6>
+                        <a href="/" class="blue-button"><strong>Price: {{event.price}}</strong></a>
+                    </div>
+               
+                </figure>
+            </article>
+                
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <div class="container" align="center">
+        <img style="object-fit:cover; width: 60%;" class="img img-responsive" src="">
+    </div>
+    
+</div>
+
+{% include 'footer.html' %}
+{% endblock %}

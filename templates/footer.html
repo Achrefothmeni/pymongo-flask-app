@@ -1,0 +1,52 @@
+<style>
+        /* Sticky footer styles
+      -------------------------------------------------- */
+      html {
+        position: relative;
+        min-height: 100%;
+      }
+      body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+      }
+      .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 60px;
+        line-height: 60px; /* Vertically center the text there */
+        background-color: #261e24;
+      }
+      
+      
+      /* Custom page CSS
+      -------------------------------------------------- */
+      /* Not required for template or sticky footer method. */
+      
+      body > .container-footer {
+        padding: 60px 15px 0;
+      }
+      
+      .footer > .container-footer {
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+      
+      code {
+        font-size: 80%;
+      }
+      .love-icone{
+          height: 20px;
+          width: 20px;
+      }
+      
+      </style>
+
+
+<footer class="footer">
+        <div class="container-footer">
+          <span class="text-muted">Made with <img class="love-icone" src="{{ url_for('static', filename='love.png') }}"> by Achref Othmeni, 2018 ©</span>
+        </div>
+</footer>
+    

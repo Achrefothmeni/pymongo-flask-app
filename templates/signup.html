@@ -1,0 +1,72 @@
+{% extends 'layout.html' %}
+{% block content %}
+<style>
+.jumbotron{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.register-icone{
+    height: 90px;
+    width: 90px;
+}
+.form-group{
+  text-align: left;
+}
+.btn {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 5px;
+}
+.p{
+ color: blue;
+}
+
+
+</style>
+<br>
+<div class="container" align="center">
+<div class="col-sm-5">
+<div class="jumbotron">
+    <img class="register-icone" src="{{ url_for('static', filename='register.png') }}"><br><br>
+    
+    {% if err_log %}
+    <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>You should be logged in to publish your event</strong>, create an account.
+            if you already have one, <a href="{{ url_for('signin') }}">Click Here</a>
+    </div>
+    {% endif %}
+
+    {% if err %}
+    <div class="alert alert-dismissible alert-danger">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>username already exists</strong>, try again.
+    </div>
+    {% endif %}
+    <form action="{{ url_for('signup') }}" method="post">
+        <div class="form-group">
+            <label class="col-form-label" for="username">username</label>
+            <input type="text" class="form-control" name="username" placeholder="username" id="username">
+        </div>
+        <div class="form-group">
+                <label class="col-form-label" for="first_name">First Name</label>
+                <input type="text" class="form-control" name="first_name" placeholder="First name" id="first_name">
+        </div> 
+        <div class="form-group">
+                <label class="col-form-label" for="last_name">Last Name</label>
+                <input type="text" class="form-control" name="last_name" placeholder="Last name" id="last_name">
+        </div>    
+   
+        <div class="form-group">
+            <label class="col-form-label" for="password">password</label>
+            <input type="password" class="form-control" name="password" placeholder="password" id="password">
+        </div>
+        <input  type="submit" class="btn btn-info" value="Sign up"><br>
+        <input  type="reset" class="btn btn-secondary" value="Reset">
+    </form>
+
+</div>
+</div>
+</div><br>
+{% include 'footer.html' %}
+{% endblock %}
