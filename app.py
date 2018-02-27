@@ -11,7 +11,7 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 UPLOAD_FOLDER = os.path.join(APP_ROOT, 'static/uploads')
 
 app = Flask(__name__)
-app.secret_key = 'afh6x3dxj9d3xoi'
+app.secret_key = 'yoursecretkey'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 #app.config['MONGO_DBNAME'] = 'isgproj_db'
